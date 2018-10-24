@@ -1,6 +1,6 @@
 class Cell
 
-  attr_accessor :row, :column, :color, :updated_by, :updated_at
+  attr_reader :row, :column, :color, :updated_by, :updated_at
 
   def initialize row, column, color
     @row = row
