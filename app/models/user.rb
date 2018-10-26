@@ -22,8 +22,12 @@ class User
 
 
   def update_board row, column
-
     Board.set_value row, column, @current_color, @session_id
+  end
+
+  def set_color color
+    raise "Invalid color provided" unless Pallete.validate_color color
+    @current_color = color
   end
 
 end

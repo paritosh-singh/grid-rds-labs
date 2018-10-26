@@ -1,0 +1,29 @@
+<table style="width:100%;height:100%" border="1">
+<tr>    
+  <% Pallete.get_colors.each do |color, value| %>  
+        <td align="center">        
+          <a style="display:block;width:100%;height:100%;background-color: <%= value %>" href="#<%= color %>" class="pallete-color">          
+          </a>
+        </td>      
+  <% end %>
+</tr>
+</table>
+
+<form id="colorSubmitForm" method="post" action="<%= change_color_user_index_path %>">
+  
+  <input type="hidden" name="color" id="colorInput"/>
+</form>
+
+<script type="text/javascript">
+  var colors =document.getElementsByClassName("pallete-color");
+
+  for(var i=0; i< colors.length; i++){
+    colors[i].onclick = function() {
+    var link = this.href;
+    color = link.split("#")[1];
+    document.getElementById("colorInput").value = color;
+    document.getElementById("colorSubmitForm").submit();
+    return false;
+  }
+  }  
+</script>

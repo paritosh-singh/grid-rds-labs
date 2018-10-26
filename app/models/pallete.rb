@@ -16,4 +16,12 @@ class Pallete
     return @@pallete[color]
   end
 
+  def self.get_colors 
+    return @@pallete
+  end
+
+  def self.validate_color color
+    !@@pallete[color].blank?
+  end
+
 end

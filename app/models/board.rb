@@ -18,7 +18,7 @@ class Board
   end
 
 
-  def self.set_value row, column, color, updated_by    
+  def self.set_value row, column, color, updated_by        
     cell = (@@board[row] || [])[column]
     raise "Invalid cell_value" if cell.blank?
     cell.update_color color, updated_by

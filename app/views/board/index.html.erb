@@ -1,0 +1,8 @@
+<div class="container" >
+  <div class="board" style="height:720px">
+    <%= render partial: "board/board", locals: {:size => 20, board: @board}%>
+  </div>
+  <div class="pallete" style="height:100px">
+    <%= render partial: "board/pallete"%>
+  </div>
+</div>
