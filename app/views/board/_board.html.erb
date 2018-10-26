@@ -3,10 +3,11 @@
 <% (0..(size - 1)).each do |row| %>
   <tr>
     <% (0..(size - 1)).each do |column| %>
-      <% cell = (board[row] || [])[column]; color = (cell || OpenStruct.new).color || "white";
+      <% cell = ((board[row] || [])[column]) || OpenStruct.new; color = cell.color || "white";
+      title = "Updated by: #{cell.updated_by} at #{cell.updated_at}" unless cell.updated_by.blank?
       color_code = Pallete.get_hexcode color %>
       <td align="center">        
-        <a style="display:block;width:100%;height:100%;background-color: <%= color_code %>" href="#<%=row%>-<%=column%>" class="board-cell">
+        <a style="display:block;width:100%;height:100%;background-color: <%= color_code %>" href="#<%=row%>-<%=column%>" class="board-cell" title="<%= title %>">
           <%= row %> X <%= column %>
         </a>
       </td>
